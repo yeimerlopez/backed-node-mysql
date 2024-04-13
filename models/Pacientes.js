@@ -1,5 +1,3 @@
-
-
 // importamos conexion a la base de datos
 import conectarBD from "../configDB/db.js";
 
@@ -25,7 +23,6 @@ const Pacientes = conectarBD.define('pacientes',{
         type: DataTypes.STRING,
         allowNull: false
     },
-
 })
 
 export default Pacientes;

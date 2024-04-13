@@ -23,7 +23,7 @@ export const getAllPatients = async (req, res) => {
 /**
  * Funcion que me permite obtener una Paciente por su id
  * @param {*} req recibe el id en la ruta
- * @param {*} res un obejto json con los datos del paciente
+ * @param {*} res devuelve un objeto json con los datos del paciente
  */
 
 export const getPatientById = async (req, res) => {
@@ -34,7 +34,11 @@ export const getPatientById = async (req, res) => {
                 id: req.params.id
             }
         });
-        res.json(paciente[0]);
+        if (paciente.length === 0) {
+            return res.status(404).json({message: `El paciente con id ${req.params.id} no existe`})
+        } else {
+            res.json(paciente[0]);
+        }
     } catch (error) {
         res.json({message: error.message})
     }
@@ -85,12 +89,12 @@ export const deletePatient = async (req, res) => {
     
     try {
 
-        let paciente =await Pacientes.findAll({
+        let pacienteExiste =await Pacientes.findAll({
             where: {
                 id: req.params.id
             }});
 
-        if (!paciente) {
+        if (pacienteExiste.length === 0) {
             return res.status(404).json({message: `El paciente que intenta eliminar no existe`})
         } else {
             
