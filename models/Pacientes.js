@@ -1,3 +1,5 @@
+
+
 // importamos conexion a la base de datos
 import conectarBD from "../configDB/db.js";
 
@@ -5,25 +7,25 @@ import conectarBD from "../configDB/db.js";
 import {DataTypes} from "sequelize";
 
 
-const Citas = conectarBD.define('citas',{
+const Pacientes = conectarBD.define('pacientes',{
 
-    nombre_medico: {
+    nombres: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    especialidad: {
+    apellidos: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    fecha: {
+    edad: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    duracion: {
+    diagnostico: {
         type: DataTypes.STRING,
         allowNull: false
     },
 
 })
 
-export default Citas;
+export default Pacientes;
