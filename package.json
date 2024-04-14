@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "start": "nodemon app.js"
-    
   },
   "keywords": [],
   "author": "Yeimer lopez",
@@ -16,6 +15,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "mysql2": "^3.9.3",
     "sequelize": "^6.37.2"
   }

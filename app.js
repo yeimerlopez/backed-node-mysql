@@ -3,6 +3,7 @@ import cors from 'cors';
 import conectarBD from './configDB/db.js';
 import citasRoutes from './routes/Routers_citas.js';
 import pacientesRoutes from './routes/Routers_pacientes.js'; // importamos las rutas para los pacientes
+import 'dotenv/config';
 
 const app = express();
 
@@ -27,9 +28,9 @@ app.get('/', (req, res) => {
 })
 
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log('Server running on port 3000 , http://localhost:3000');
+    console.log(`Server running on port ${PORT} , http://localhost:3000`);
 })
 
